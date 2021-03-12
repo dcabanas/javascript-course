@@ -1,0 +1,137 @@
+npm install (installs all the dependencies of current project)
+npm run devserver
+
+Theory:
+undefined is different than null. Undefined means the variable has not 
+been affected a value, and null means a variable has the null value
+
+typeof(variable) -> sees the type of the variable
+
+JSON.stringify(object/dictionary) -> best way to print the entire object
+
+Object.values(object/dictionary) -> prints all the values only
+
+array.length -> size of an array
+
+for (var n of array) {} -> iterates every element of the array
+
+names.forEach(function(n, index) {}) -> another way to iterate an array
+
+function functionname() {} -> creates a function
+
+switch (true) {} -> makes it possible to have ==, >= comparisons in the cases
+
+! -> not logical condition
+
+== -> compares the values between two variables
+
+=== -> compares the values and types between two variables
+0 is false and 1 is true
+0 == false -> true
+'0' == false -> true
+1 == '1' -> true
+in javascript we must use type coercion (===)
+
+array.map(function(n) {}) -> applies the function to each element
+in the array
+
+array.filter(function(n) {}) -> filters the elements in the array by a certain
+condition. fucntion(n) must return a boolean
+
+array.reduce(function(accumulator, current) {}) -> the accumulator is the current
+sum of the elements in the array, and current is the current element. Reduces the
+array into one value
+
+callback -> is a function passed inside another function that is executed at
+some point. Best pratice to call the function being passed, callback
+
+import * as Math from './Math' -> imports everything in Math.js file. No need
+to specify the extension ".js" and the alias is anything we want
+
+import {add, divide, PI} from './Math' -> when we want to import specific functions,
+variables, etc we put curly brances and don't use the alias
+
+these two types of imports are called named imports and work for named exports ->
+when we export multiple things at the same time. Mostly used for functions and values
+
+export default class Animal {} -> import Animal from './Animal'
+
+let keyword -> block scope local variable
+
+const keyword -> reassignment is not possible
+
+best pratice -> start by declaring a variable with const and change to let when
+reassignment is needed. Never user var keyword
+
+template literals -> `Name ${name} Country ${country}`. Inside the bad ticks "`",
+it is possible to perform javascript operations and pass down anything
+
+spread operator (...) -> can be used to expand all elements in multiple arrays
+to another one; to transform a string into an array; to pass multiple arguments
+into a function elegantly; pass the keys and values of multiple objects into
+another object elegantly
+
+const name = (args) => {} -> arrow function. If there is only one arg we can drop
+the "()"; if the body is more than one line we need the "{}"; if the body is only
+a return there is no need for the return; if there are no args or more than 1
+we need the "()". When returning an object we need to wrap it with "{}"
+
+arrow functions should be avoided when we need to use this in an event listener;
+when creating a method for an object. everything else should be arrow functions
+
+enchanced object properties lets us create an object without defining its properties
+as key: value pairs; also customize the properties as we wish -> [propname]: variable.
+This is only possible and used when returning the object from within a function
+
+cons [a, , c, ...restOfelements] = array -> array destructuring. Extracts the elements we want from an array. The names can
+be whatever, any element we dont want simply leave it blank, the positions correspond
+to the elements positions in the array
+
+const {objectkey: renamingthekey, objectkey, objectkey : {objectkey: renaming}} = objectname ->
+object destructuring. Same thing as above but for objects.
+
+{teamBonus: 10000, employeeBonus: 6000} -> this is how we pass an object as a
+function argument
+
+when an object is a default function parameter, we declare it with key/value pairs
+
+functions inside a class don't need the keyword "function". constructors need the
+word this to instatiate the variables passed within and everytime we want to
+reference those variables inside the class
+
+class Dog extends Animal; super(properties of parent class) in the constructor of
+the child class; super.method() from parent class -> class inheritance
+
+static keyword -> static methods or properties belong to the actual class and 
+not to each individual object we instantiate. This means we dont need to instantiate
+the class "new classname" to invoke the method "classname.staticmethod()"
+
+a promise is an object that is used for asynchronous computations. when it is
+successful we use the ".then()" method and when it is rejected we use the
+".catch()" method
+
+setTimeout(() => {}, time) -> this method recieves a callback as first arg to do
+some computation, and an int as miliseconds denoting, after how many "time" we
+want the callback function to execute
+
+const interval = setInterval(() => {}, time) -> repeats the callback function
+every "time" miliseconds. clearInterval(interval) stops the timer
+
+Promise.all(arrayofpromises) -> handles multiple promises. Or they all fulfill or
+if one of them fails, .catch() in Promise.all() will be called
+
+fetch api -> useful to communicate with APIs and send requests. works with
+promises and responses objects
+
+a generator is a function that can be paused allowing to write code asynchronously
+
+so generators can handle promises, we need to pass the generator as a callback
+to a courotine. the courotine will be in charge of the promise. For this we
+need to install bluebird. this is mostly used and helpful when we have nested
+promises, hence, nested .then()
+
+async wait keywords -> wraps all the generators with promises (coroutines) in a
+much neater way without depending on a external package (blueblird). await
+replaces yield and an async function returns a promise
+
+with async wait, we should use the try catch block to handle errors
